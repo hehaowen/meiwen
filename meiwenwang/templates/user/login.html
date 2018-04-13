@@ -1,0 +1,21 @@
+{% extends 'base/base_user.html' %}
+{% load static %}
+{% block title %}登录{% endblock title %}
+{% block body %}
+    <form action="{% url 'user:login_dle' %}" method="post">
+    {% csrf_token %}
+        <p><a href="{% url 'user:register' %}" class="pull-right light">+ 注册</a></p>
+        <p class="phone-numer-input">
+            <input type="text" placeholder="用户名" autocomplete="off" class="text" name="nickname">
+        </p>
+        <p><input type="password" name="password" placeholder="密码" class="text"></p>
+        <p class="mtop20"><label><input type="checkbox" name="remember" value="true" class="checkbox">
+            记住密码</label>
+            <a href="/forget?useEmail=false" class="pull-right">忘记密码</a></p>
+        <button type="submit" class="btn form">登录</button>
+        <hr>
+    </form>
+    <div class="social-auth"><a href="javascript:;"><i class="icon i-weibo"></i></a> <a href="javascript:;"><i
+            class="icon i-wechat"></i></a> <a href="javascript:;"><i class="icon i-email"></i></a>
+        <p><strong>使用其他方式登录</strong></p></div>
+{% endblock body %}

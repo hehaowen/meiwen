@@ -1,0 +1,30 @@
+{% extends 'base/base_user.html' %}
+{% load static %}
+{% block title %}注册{% endblock title %}
+{% block body %}
+
+        <form action="{% url 'user:reg_dle' %}" method="post">
+            {% csrf_token %}
+            <div class="text el-input el-input-group el-input-group--prepend">
+                <input type="text" name="email" placeholder="邮箱" autocomplete="off" class="el-input__inner">
+            </div>
+            </p> <p><input type="text" name="nickname" placeholder="昵称（2-10 个字符，中英文，数字下划线）"
+                           class="el-input__inner" autocomplete="off"></p>
+            <p><input type="password" name="password" placeholder="密码（不少于 6 位）"
+                      class="el-input__inner" autocomplete="off"></p>
+            <p><input type="password" name="old_password" placeholder="再次输入密码"
+                      class="el-input__inner" autocomplete="off"></p>
+            <p class="phone-numer-verify">
+            <div class="text el-input el-input-group el-input-group--append">
+                <input type="text" placeholder="输入验证码" class="el-input__inner"
+                       autocomplete="off">
+                <div class="el-input-group__append">
+                    <div class="">发送验证码</div>
+                </div>
+            </div>
+            </p> <p class="mtop20"><label class="small"><input type="checkbox" value="1" class="checkbox">
+            我已经阅读并同意《<a href="../post/37739" target="_blank" class="light">易读用户协议</a>》</label></p>
+            <button type="submit" class="btn form">注册</button>
+        </form>
+    </section>
+{% endblock body %}
